@@ -23,17 +23,29 @@ jobs:
       - name: Build all modules
         run: ./gradlew build
 
+      # --- Neuer Schritt: Tag automatisch erstellen ---
+      - name: Create Git Tag
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag -a "v${GITHUB_RUN_NUMBER}" -m "Auto tag ${GITHUB_RUN_NUMBER}"
+          git push origin "v${GITHUB_RUN_NUMBER}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.REP_PAT }}
+
+      # --- Release mit existierendem Tag erstellen ---
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ github.run_number }}  # automatische Nummer für Release
+          tag: v${{ github.run_number }}
           name: Release ${{ github.run_number }}
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.REP_PAT }}
 
+      # --- Upload der JARs ---
       - name: Upload plugin JARs
         uses: softprops/action-gh-release@v1
         with:
