@@ -26,12 +26,11 @@ jobs:
       # --- Neuer Schritt: Tag automatisch erstellen ---
       - name: Create Git Tag
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git tag -a "v${GITHUB_RUN_NUMBER}" -m "Auto tag ${GITHUB_RUN_NUMBER}"
-          git push origin "v${GITHUB_RUN_NUMBER}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.REP_PAT }}
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git remote set-url origin https://${{ secrets.REP_PAT }}@github.com/AniratakDZ/MineZReloaded.git
+            git tag -a "v${GITHUB_RUN_NUMBER}" -m "Auto tag ${GITHUB_RUN_NUMBER}"
+            git push origin "v${GITHUB_RUN_NUMBER}"
 
       # --- Release mit existierendem Tag erstellen ---
       - name: Create Release
