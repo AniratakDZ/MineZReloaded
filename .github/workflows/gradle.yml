@@ -47,5 +47,4 @@ jobs:
             core-platform/build/libs/*.jar
             persistence/build/libs/*.jar
             world-setup/build/libs/*.jar
-        env:
-          GITHUB_TOKEN: ${{ secrets.REP_PAT }}
+          token: ${{ secrets.REP_PAT }}
