@@ -4,7 +4,6 @@ plugins {
 
 allprojects {
     group = 'de.jefa'
-    version = '1.0.0'
 
     repositories {
         mavenCentral()
@@ -13,7 +12,6 @@ allprojects {
             url = uri("https://repo.papermc.io/repository/maven-public/")
         }
     }
-
 }
 
 subprojects {
@@ -26,6 +24,7 @@ subprojects {
     }
 }
 
+// --- Automatische Version aus letztem Git-Tag + Commit-Count ---
 def stdout = new ByteArrayOutputStream()
 exec {
     commandLine 'git', 'describe', '--tags', '--abbrev=0'
@@ -37,8 +36,15 @@ if (!lastTag) {
     lastTag = "0.0.0"
 }
 
-// Optional: Build-Nummer aus Commit-Count
 def commitCount = 'git rev-list --count HEAD'.execute().text.trim()
 
 version = "${lastTag}.${commitCount}"
 println "Building version: $version"
+
+// JAR-Dateien bekommen automatisch den Versionsnamen
+subprojects {
+    tasks.withType(Jar) {
+        archiveBaseName.set(project.name)
+        archiveVersion.set(project.version)
+    }
+}
