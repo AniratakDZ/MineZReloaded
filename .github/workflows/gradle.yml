@@ -37,8 +37,7 @@ jobs:
           name: Release ${{ github.run_number }}
           draft: false
           prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.REP_PAT }}     # PAT mit repo-Rechten
+          token: ${{ secrets.REP_PAT }}     # PAT mit repo-Rechten
 
       # --- Upload der JARs ---
       - name: Upload plugin JARs
