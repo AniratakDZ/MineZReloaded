@@ -1,0 +1,7 @@
+name: MineZReloaded-Core
+main: de.jefa.core.CorePlatformPlugin
+version: ${project.version}
+api-version: "1.21"
+load: STARTUP
+authors: [ "de.jefa"]
+description: "Core services for MineZ Reloaded (config, events, scheduler)"
