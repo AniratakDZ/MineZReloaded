@@ -36,7 +36,7 @@ jobs:
         with:
           tag_name: latest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.REP_PAT }}
 
       # Upload der JARs als einzelne Assets
       - name: Upload plugin JARs
