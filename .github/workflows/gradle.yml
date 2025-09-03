@@ -45,7 +45,7 @@ jobs:
         with:
           tag_name: release-${{ github.run_number }}
           files: |
-            core-platform/build/libs/*.jar
-            persistence/build/libs/*.jar
-            world-setup/build/libs/*.jar
+            core-platform/build/libs/core-plattform.jar
+            persistence/build/libs/persistence.jar
+            world-setup/build/libs/world-setup.jar
           token: ${{ secrets.REP_PAT }}
