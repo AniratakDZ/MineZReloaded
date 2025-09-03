@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = 'de.jefa'
+    version = '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+        maven {
+            name = "papermc"
+            url = uri("https://repo.papermc.io/repository/maven-public/")
+        }
+    }
+
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+}

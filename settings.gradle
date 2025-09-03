@@ -1,0 +1,6 @@
+rootProject.name = 'MineZReloaded'
+
+include("core-plattform")
+include("persistence")
+include("world-setup")
+
