@@ -5,3 +5,10 @@ api-version: "1.21"
 load: STARTUP
 authors: [ "de.jefa"]
 description: "Core services for MineZ Reloaded (config, events, scheduler)"
+commands:
+  mzreload:
+    description: Reload MineZ configs
+    permission: minez.admin.reload
+permissions:
+  minez.admin.reload:
+    default: op

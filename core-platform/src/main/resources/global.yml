@@ -1,0 +1,3 @@
+debug: false
+reload:
+  debounce_ms: 1000

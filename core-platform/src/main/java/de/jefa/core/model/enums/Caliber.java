@@ -1,4 +1,4 @@
-package de.jefa.core.model;
+package de.jefa.core.model.enums;
 
 public enum Caliber {
     N9MM("9mm"),

@@ -1,0 +1,6 @@
+hunger:
+  start: 100
+  decay_per_minute: 2.5
+thirst:
+  start: 100
+  decay_per_minute: 4.0
